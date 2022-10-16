@@ -9,7 +9,7 @@ let basket = [];
 function addItem(item){
     basket.push(item);
     // Log item and updated basket to the console
-    console.log("Item", item, "has been added to your cart. Cart now contains:", basket);
+    console.log("Item", item, "has been added to your cart.");
     return true;
 }
 
@@ -29,4 +29,12 @@ function listItems(){
 // Tests the listItems function and prints out basket contents
 listItems();
 
-// 
+// Create function to empty the basket
+function empty(){
+    basket = [];
+    console.log('Your cart has been emptied.');
+}
+
+// Tests the empty function
+empty();
+console.log('Your cart now contains:', basket);
