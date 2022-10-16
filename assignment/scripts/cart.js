@@ -20,10 +20,14 @@ addItem('Husky puppy');
 
 // Create function to list items in the basket
 function listItems(){
-    console.log('Your cart contains:');
-    for(let item of basket){
-        console.log(item);
-    }
+    if(basket.length > 0){
+        console.log('Your cart contains:');
+        for(let item of basket){
+            console.log(item);
+        }
+    } else{
+        console.log('Your cart is empty.');
+    }   
 }
 
 // Tests the listItems function and prints out basket contents
@@ -37,4 +41,4 @@ function empty(){
 
 // Tests the empty function
 empty();
-console.log('Your cart now contains:', basket);
+listItems();
