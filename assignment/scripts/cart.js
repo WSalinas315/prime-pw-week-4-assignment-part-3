@@ -5,11 +5,17 @@ console.log('***** Cart Functions *****');
 // Create variable basket as empty array
 let basket = [];
 
-// Create function addItem to add item string to 
+// define a maximum number of items of 5
+const maxItems = 5;
+
+// Create function addItem to add item string to basket if basket does not exceed maxItems
 function addItem(item){
-    basket.push(item);
-    // console.log("Item", item, "has been added to your cart.");
-    return true;
+    if(isFull() == false){
+        basket.push(item);
+        return true;
+    } else{
+        return false;
+    }
 }
 
 // Log empty basket contents to console
@@ -32,7 +38,6 @@ function listItems(){
         }
         return true;
     } else{
-        //console.log('Your cart is empty.');
         return 'Your cart is empty.';
     }
 }
@@ -43,7 +48,6 @@ listItems();
 // Create function to empty the basket
 function empty(){
     basket = [];
-    //console.log('Your cart has been emptied.');
     return true;
 }
 
@@ -52,11 +56,36 @@ console.log('Emptying cart (expect true)', empty());
 console.log(`Listing contents for empty cart (expect 'Your cart is empty')`, listItems());
 
 // STRETCH GOALS
-// define a maximum number of items of 5
-const maxItems = 5;
+
+
 
 // Create isFull function to test if the basket exceed maxItems
 function isFull(){
-
+    if(basket.length < maxItems){
+        return false;
+    } else{
+        return true;
+    }
 }
 
+// Testing isFull function for both empty and full baskets
+console.log('Running isFull (expect false)', isFull());
+console.log('Adding Husky Puppy (expect true)', addItem('Husky Puppy'));
+console.log('Adding Beagle Puppy (expect true)', addItem('Beagle Puppy'));
+console.log('Adding Samoyed Puppy (expect true)', addItem('Samoyed Puppy'));
+console.log('Adding Yellow Lab Puppy (expect true)', addItem('Yellow Lab Puppy'));
+console.log('Adding Tamaskan Puppy (expect true)', addItem('Tamaskan Puppy'));
+console.log('Adding Poodle Puppy (expect false)', addItem('Poodle Puppy'));
+console.log('Running isFull (expect true)', isFull());
+
+// Verifying that basket does not contain the Poodle Puppy
+listItems();
+
+// Create removeItem function to remove a specified item from the basket
+function removeItem(item){
+    if(basket.indexOf(item) != -1){
+        basket.splice(basket.indexOf(item),1);
+    } else{
+        return null;
+    }
+}
