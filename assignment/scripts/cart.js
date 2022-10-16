@@ -8,10 +8,10 @@ let basket = [];
 // define a maximum number of items of 5
 const maxItems = 5;
 
-// Create function addItem to add item string to basket if basket does not exceed maxItems
+// Create function addItem to convert item to string and add it to array basket if basket does not exceed maxItems
 function addItem(item){
     if(isFull() == false){
-        basket.push(item);
+        basket.push(item.toString());
         return true;
     } else{
         return false;
