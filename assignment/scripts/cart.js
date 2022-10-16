@@ -57,8 +57,6 @@ console.log(`Listing contents for empty cart (expect 'Your cart is empty')`, lis
 
 // STRETCH GOALS
 
-
-
 // Create isFull function to test if the basket exceed maxItems
 function isFull(){
     if(basket.length < maxItems){
@@ -85,7 +83,14 @@ listItems();
 function removeItem(item){
     if(basket.indexOf(item) != -1){
         basket.splice(basket.indexOf(item),1);
+        return item;
     } else{
         return null;
     }
 }
+
+// Testing removeItem function for one item not in the basket and one that is
+console.log('Removing Corgi Puppy (expect null)', removeItem('Corgi Puppy'));
+console.log(`Contents of basket are: ${basket}`);
+console.log('Removing Yellow Lab Puppy (expect Yellow Lab Puppy)', removeItem('Yellow Lab Puppy'));
+console.log(`Contents of basket are now: ${basket}`);
